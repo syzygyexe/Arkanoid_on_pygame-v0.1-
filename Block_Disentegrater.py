@@ -170,7 +170,7 @@ class Spritesheet:
         self.spritesheet = pygame.image.load(filename).convert()
 
     def get_image(self, x, y, width, height):
-        # Grab an image out of a larget sprtiesheet
+        # Grab an image out of a larger sprtiesheet
         image = pygame.Surface((width, height))
         # Take the chunk out of the "self.spritesheet", with the given (x,y,w,h)
         image.blit(self.spritesheet, (0, 0), (x, y, width, height))
