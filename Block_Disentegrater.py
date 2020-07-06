@@ -79,7 +79,7 @@ class Blocks(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
-    # FIGURE OUR LATER ################################
+    # FIGURE OUT LATER ################################
     #def block_collision(self, xcl, xcr, yct, ycb):
         #self.rect.left = xcl
         #self.rect.right = xcr
@@ -104,7 +104,7 @@ class Ball(pygame.sprite.Sprite):
         self.speedy = 5
         self.vector_change = -1
     
-    # FIGURE OUR LATER ################################
+    # FIGURE OUT LATER ################################
     # xcl, ycr - X-axis collision(Right/Left)
     # yct, ycb Y-axis collision(Top/Bottom)
     # def block_collision(self, xcl, xcr, yct, ycb):
