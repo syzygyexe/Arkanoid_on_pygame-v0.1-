@@ -252,7 +252,7 @@ while running:
         ball.speedy *= ball.vector_change
         collision_count += 1
     for hit in hits_ball_block:
-        if random.random() > 0.1:
+        if random.random() > 0.9:
             pow = Pow(hit.rect.center)
             all_sprites.add(pow)
             powerups_group.add(pow)
@@ -274,7 +274,7 @@ while running:
         second_ball.speedy *= second_ball.vector_change
         collision_count_second_ball += 1
     for hit in hits_second_ball_blocks:
-        if random.random() > 0.1:
+        if random.random() > 0.9:
             pow = Pow(hit.rect.center)
             all_sprites.add(pow)
             powerups_group.add(pow)
