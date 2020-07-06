@@ -256,7 +256,7 @@ while running:
             pow = Pow(hit.rect.center)
             all_sprites.add(pow)
             powerups_group.add(pow)
-        if collision_count in {40, 80, 100}:
+        if collision_count in {100, 200, 300}:
             ball_speed_increase()
 
     hits_ball_player = pygame.sprite.groupcollide(ball_group, player_group, False, False)
@@ -264,7 +264,7 @@ while running:
         random.choice(collision_sounds).play()
         ball.speedy *= ball.vector_change
         collision_count += 1
-        if collision_count in {40, 80, 100}:
+        if collision_count in {100, 200, 300}:
             ball_speed_increase()
     
     # SECOND BALL
