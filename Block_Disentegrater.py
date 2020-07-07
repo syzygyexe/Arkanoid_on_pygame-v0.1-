@@ -29,7 +29,7 @@ def ball_speed_increase():
     if ball.speedx < 0 or ball.speedy < 0:
         ball.speedx += -5
         ball.speedy += -5
-    elif ball.speedx > 0 or ball.speedy < 0:
+    elif ball.speedx > 0 or ball.speedy > 0:
         ball.speedx += 5
         ball.speedy += 5
 
@@ -37,7 +37,7 @@ def second_ball_speed_increase():
     if second_ball.speedx < 0 or second_ball.speedy < 0:
         second_ball.speedx += -5
         second_ball.speedy += -5
-    elif second_ball.speedx > 0 or second_ball.speedy < 0:
+    elif second_ball.speedx > 0 or second_ball.speedy > 0:
         second_ball.speedx += 5
         second_ball.speedy += 5
 
