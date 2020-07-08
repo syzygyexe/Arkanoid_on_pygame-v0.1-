@@ -66,6 +66,12 @@ class Player(pygame.sprite.Sprite):
         if self.rect.left < 0:
             self.rect.left = 0
 
+    def shoot(self):
+        # shoot powerup
+        rocket = Rocket(self.rect.centerx, self.rect.top)
+        all_sprites.add(rocket)
+        rockets.add(rocket)
+
 class Blocks(pygame.sprite.Sprite):
     # x, y - Grid placement. 
     def __init__(self, x , y):
@@ -79,7 +85,7 @@ class Blocks(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
-    # FIGURE OUT LATER ################################
+    # FIGURE OUR LATER ################################
     #def block_collision(self, xcl, xcr, yct, ycb):
         #self.rect.left = xcl
         #self.rect.right = xcr
@@ -104,7 +110,7 @@ class Ball(pygame.sprite.Sprite):
         self.speedy = 5
         self.vector_change = -1
     
-    # FIGURE OUT LATER ################################
+    # FIGURE OUR LATER ################################
     # xcl, ycr - X-axis collision(Right/Left)
     # yct, ycb Y-axis collision(Top/Bottom)
     # def block_collision(self, xcl, xcr, yct, ycb):
@@ -163,6 +169,22 @@ class Pow(pygame.sprite.Sprite):
         if self.rect.top > HEIGHT:
             self.kill()
 
+class Rocket(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.Surface((10, 20))
+        self.image.fill(YELLOW)
+        self.rect = self.image.get_rect()
+        self.rect.bottom = y
+        self.rect.centerx = x
+        self.speedy = -10
+
+    def update(self):
+        self.rect.y += self.speedy
+        # kill if it moves of the top of the screen
+        if self.rect.bottom < 0:
+            self.kill()
+
 
 class Spritesheet:
     # Utility class for loading and parsing spritesheets
@@ -170,7 +192,7 @@ class Spritesheet:
         self.spritesheet = pygame.image.load(filename).convert()
 
     def get_image(self, x, y, width, height):
-        # Grab an image out of a larger sprtiesheet
+        # Grab an image out of a larget sprtiesheet
         image = pygame.Surface((width, height))
         # Take the chunk out of the "self.spritesheet", with the given (x,y,w,h)
         image.blit(self.spritesheet, (0, 0), (x, y, width, height))
@@ -213,6 +235,7 @@ ball.add(ball_group)
 second_ball_group = pygame.sprite.Group()
 second_ball = Extra_ball()
 powerups_group = pygame.sprite.Group()
+rockets = pygame.sprite.Group()
 all_sprites.add(player, ball)
 
 blocks = pygame.sprite.Group()
@@ -252,7 +275,7 @@ while running:
         ball.speedy *= ball.vector_change
         collision_count += 1
     for hit in hits_ball_block:
-        if random.random() > 0.75:
+        if random.random() > 0.1:
             pow = Pow(hit.rect.center)
             all_sprites.add(pow)
             powerups_group.add(pow)
@@ -274,7 +297,7 @@ while running:
         second_ball.speedy *= second_ball.vector_change
         collision_count_second_ball += 1
     for hit in hits_second_ball_blocks:
-        if random.random() > 0.75:
+        if random.random() > 0.1:
             pow = Pow(hit.rect.center)
             all_sprites.add(pow)
             powerups_group.add(pow)
@@ -289,6 +312,10 @@ while running:
         if collision_count_second_ball in {100, 200, 300}:
             second_ball_speed_increase
     
+    # Rocket power up collision
+    rocket_blocks = pygame.sprite.groupcollide(blocks, rockets, True, False)
+
+    # POWERUPS
     hits_powerup_player = pygame.sprite.groupcollide(powerups_group, player_group, True, False)
     for hit in hits_powerup_player:
         if hit.type == "expander":
@@ -316,8 +343,9 @@ while running:
             player.rect.centerx = hit.rect.x
             player.rect.bottom = HEIGHT - 10
         if hit.type == "shooting_paddle":
-            pass
-
+            player.shoot()
+        
+        
 
     # 3) Draw / Render section
     screen.fill(BLACK)
