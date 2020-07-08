@@ -8,4 +8,4 @@ There is no "New Game" or "Game Over" functions yet. Consequently, the game can 
 08/07/2020 update:
 - New powerup "shooting paddle"
 - New class Rocket.
-- New method shoot was added to a Player class.
+- New method shoot was added onto a Player class.
