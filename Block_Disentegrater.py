@@ -177,7 +177,7 @@ class Rocket(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.bottom = y
         self.rect.centerx = x
-        self.speedy = -10
+        self.speedy = -7
 
     def update(self):
         self.rect.y += self.speedy
@@ -216,6 +216,7 @@ expander_sound = pygame.mixer.Sound(path.join(snd_dir, "Powerup2.wav"))
 new_ball_sound = pygame.mixer.Sound(path.join(snd_dir, "Powerup3.wav"))
 gun_powerup = pygame.mixer.Sound(path.join(snd_dir, "Powerup4.wav"))
 shoot_sound = pygame.mixer.Sound(path.join(snd_dir, "Laser_Shoot5.wav"))
+rocket_sound = pygame.mixer.Sound(path.join(snd_dir, "Rocket9.wav"))
 collision_sounds = []
 for snd in ["Pickup_coin10.wav", "Pickup_coin11.wav", "Pickup_coin12.wav", "Pickup_coin13.wav"]:
     collision_sounds.append(pygame.mixer.Sound(path.join(snd_dir, snd)))
@@ -332,6 +333,7 @@ while running:
             new_ball_sound.play()
             second_ball.add(second_ball_group)
             all_sprites.add(second_ball)
+            
         if hit.type == "shrinker":
             shrinker_sound.play()
             hit_center = hit.rect.center
@@ -343,6 +345,7 @@ while running:
             player.rect.centerx = hit.rect.x
             player.rect.bottom = HEIGHT - 10
         if hit.type == "shooting_paddle":
+            rocket_sound.play()
             player.shoot()
         
         
