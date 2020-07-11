@@ -7,7 +7,7 @@ There is no "New Game" or "Game Over" functions yet. Consequently, the game can 
 
 ---SPRITESHEET DOWNLOAD--- https://opengameart.org/content/arcanoid-starter-set
 
----MUSIC DOWNLOAD---  https://opengameart.org/content/techno-space
+---MUSIC DOWNLOAD--- https://opengameart.org/content/techno-space
 
 08/07/2020 update:
 - New powerup "shooting paddle"
