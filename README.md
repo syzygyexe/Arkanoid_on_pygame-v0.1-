@@ -6,6 +6,7 @@ The Block Disintegreter is a replica of the Arcanoid game which was created by t
 There is no "New Game" or "Game Over" functions yet. Consequently, the game can be terminated solely via windows close button.
 
 ---SPRITESHEET DOWNLOAD--- https://opengameart.org/content/arcanoid-starter-set
+---MUSIC DOWNLOAD--- 
 
 08/07/2020 update:
 - New powerup "shooting paddle"
