@@ -9,6 +9,9 @@ There is no "New Game" or "Game Over" functions yet. Consequently, the game can 
 
 ---MUSIC DOWNLOAD--- https://opengameart.org/content/techno-space
 
+---GAME SOUNDS--- https://www.bfxr.net/
+
+
 08/07/2020 update:
 - New powerup "shooting paddle"
 - New class Rocket.
