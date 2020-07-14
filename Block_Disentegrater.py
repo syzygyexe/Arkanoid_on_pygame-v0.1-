@@ -85,7 +85,7 @@ class Blocks(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
-    # FIGURE OUR LATER ################################
+    # FIGURE OUT LATER ################################
     #def block_collision(self, xcl, xcr, yct, ycb):
         #self.rect.left = xcl
         #self.rect.right = xcr
