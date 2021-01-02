@@ -1,4 +1,4 @@
-# Block_Disintegreter-v0.1-
+# Block_Disintegretor
 
 The Block Disintegretor is a replica of the Arcanoid game which was created by the Atari back in the 80s.
 
